@@ -11,6 +11,17 @@ const Input = styled.input`
   border: 1px solid black;
   border-radius: 3px;
 `;
+const Button = styled.button`
+  /* Adapt the colors based on primary prop */
+  background: ${(props) => (props.primary ? "palevioletred" : "white")};
+  color: ${(props) => (props.primary ? "white" : "palevioletred")};
+
+  font-size: 1em;
+  margin: 2px;
+  padding: 1px 2px;
+  border: 2px solid palevioletred;
+  border-radius: 3px;
+`;
 
 function TodoForm() {
   const { addTodo } = useContext(TodoContext);
@@ -30,7 +41,7 @@ function TodoForm() {
         onChange={(e) => setText(e.target.value)}
         placeholder='Add a todo'
       />
-      <button type='submit'>Add</button>
+      <Button type='submit'>Add</Button>
     </form>
   );
 }
